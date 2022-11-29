@@ -45,7 +45,7 @@ function pedirPiloto () {
 
 pedirPiloto();
 
-alert("Inicia la carrera...");
+alert(`Inicia la carrera...(tu puesto actual es el nº ${posicion}`);
 alert("3");
 alert("2");
 alert("1");
@@ -57,14 +57,14 @@ alert("¿Que acción realizas?");
 
 function primeraDecision () {
     const respuesta = prompt(`
-    1-Aceleras
+    1-Derrapas
     2-Mantienes la velocidad
     3-Desaceleras`);
 
     switch (respuesta) {
         case "1":
             posicion --;
-            primeraDecision = "Aceleras, por lo que avanzas 1 lugar";
+            primeraDecision = "Derrapas, por lo que obtienes un boost de velocidad y avanzas 1 lugar";
             break;
         case "2":
             primeraDecision = "Mantienes la velocidad y también la posición";
@@ -82,9 +82,8 @@ function primeraDecision () {
 primeraDecision();
 
 alert("En base a tu decisión y astucia");
-alert("y un par de bananas por acá y hongos re locos...");
-alert("Calculando...");
-alert(`Tu puesto actual es el nº ${posicion}`);
+alert("y un par de bananas y hongos re locos...");
+alert(`Calculando ...Tu puesto actual es el nº ${posicion}`);
 
 if (piloto !== "Bowser") {
     adversario = "Bowser";
@@ -99,8 +98,7 @@ alert("Ahora aparece un cubo de objetos aleatorio, logras obtener uno");
 const index = Math.floor(Math.random() * 3);
 const objetos =  ["Banana", "Caparazon verde", "Hongo"];
 
-alert("se agita el cubo *truru truru* 🎲🎶");
-alert(`Te ha salido el objeto ${objetos[index]}`);
+alert(`Se agita el cubo *truru truru* 🎲🎶...Te ha salido el objeto ${objetos[index]}`);
 
 function decisionDelCaparazon () {
     const respuesta = prompt(`Al caparazon lo puedes lanzar hacia
@@ -126,7 +124,7 @@ function decisionDelCaparazon () {
         default:
             alert("se te chispoteo de las manos y lo perdiste, te recomiendo el buscaminas online");
             break;
-    }
+    };
 };
 
 if (objetos[index] === "Caparazon verde") {
@@ -134,13 +132,39 @@ if (objetos[index] === "Caparazon verde") {
 } else if (objetos[index] === "Banana") {
     alert("la usas y mantienes la posición")
 } else {
-    alert("usas el hongo, lamentablemente no era de los hongos que te dan velocidad sino los que tienen efectos alucinogenos")
+    alert("usas el hongo, lamentablemente no era de los hongos que te dan velocidad sino los que tienen efectos alucinogenos. Te rebasan")
     posicion ++;
-}
+};
 
 alert(`Tu puesto actual es el nº ${posicion}`);
+alert("Estás en el tramo final, hay una rampa antes de la meta. Tuviste suerte y en uno de los cubos obtuviste un caparazón azul");
 
+function tramoFinal () {
+    const respuesta = prompt(`Elige sabiamente tu última decisión 
+    1-Lanzas el caparazón antes de saltar la rampa
+    2-Saltas y lanzas el caparazón en el aire`);
 
+    switch (respuesta) {
+        case "1":
+            alert("El piloto que va delante, segundos antes de que lanzaras el capazaron salta la rampa y logra esquivarlo");
+            break;
+        case "2":
+            alert("Saltas casi a la misma vez que el piloto contrario, lanzas el caparazon y lo derribas en el aire");
+            posicion --;
+            break;
+        default:
+            tramoFinal();
+            break;        
+    };
+};
 
+tramoFinal();
 
+alert(`La carrera a finalizado, su puesto es el nº ${posicion}`)
 
+if (posicion === 1) {
+    alert("¡Felicidades, has ganado la carrera!");
+} else {
+    alert("No has obtenido el primer puesto");
+    alert("¡Game Over!");
+};
