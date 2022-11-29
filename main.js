@@ -45,7 +45,7 @@ function pedirPiloto () {
 
 pedirPiloto();
 
-alert(`Inicia la carrera...(tu puesto actual es el nº ${posicion}`);
+alert(`Inicia la carrera. Has seleccionado al piloto ${piloto} y tu puesto actual es el nº${posicion}`);
 alert("3");
 alert("2");
 alert("1");
@@ -160,7 +160,8 @@ function tramoFinal () {
 
 tramoFinal();
 
-alert(`La carrera a finalizado, su puesto es el nº ${posicion}`)
+alert("La carrera a finalizado")
+alert(`El piloto ${piloto} a finalizado en el puesto nº${posicion}`)
 
 if (posicion === 1) {
     alert("¡Felicidades, has ganado la carrera!");
